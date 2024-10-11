@@ -1,0 +1,64 @@
+.Hero {
+  width: 100%;
+
+  background-image: url("./image.png");
+  background-position: center !important;
+  background-size: cover !important;
+
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+.Hero .HeroWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+
+  max-width: 1200px;
+  width: 100%;
+
+}
+
+.Hero .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Hero .info .logo {
+  width: 100%;
+}
+
+.Hero .info .titleOpen {
+  width: 80%;
+}
+
+.Hero .info p {
+  font-family: "DelaGothicOne";
+  font-size: 30px;
+  text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+
+
+  .Hero .HeroWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .Hero .HeroWrapper>*:first-child {
+    display: none;
+  }
+
+
+
+
+}

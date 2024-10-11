@@ -1,0 +1,158 @@
+.Footer {
+
+  margin-top: 4rem;
+  background-color: #2c3822;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 2rem;
+  gap: 1rem;
+  padding-bottom: 2rem;
+
+  font-family: Montserrat;
+  font-size: 16px;
+}
+
+.Footer h2 {
+  font-family: "DelaGothicOne";
+  text-transform: uppercase;
+  color: rgb(176, 209, 130);
+}
+
+.Footer .Wrapper {
+
+  height: 100%;
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Footer .topWrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+}
+
+
+
+.Footer .Wrapper .section {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+}
+
+.Footer .Wrapper .section.logo img {
+  width: 100%;
+  max-width: 200px;
+}
+
+
+.Footer .Wrapper .section.logo {}
+
+.Footer .Wrapper .section.direction {}
+
+.Footer .Wrapper .section.location {
+  width: 700px;
+}
+
+.Footer .section.contact .social {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.Footer .section.contact .social img {
+  height: 25px;
+  width: 25px;
+
+  filter: invert(100%);
+}
+
+.Footer .section.contact .social a {
+  transition: transform .2s ease;
+
+}
+
+.Footer .section.contact .social a:hover {
+  transform: scale(1.4);
+}
+
+
+
+
+.Footer .map {
+  width: 100%;
+  height: 500px;
+}
+
+.Footer .media img {
+  width: 30px;
+  height: 30px;
+}
+
+.Footer .media {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Footer .refooter {
+  border-top: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  color: white;
+  width: 100%;
+}
+
+
+
+@media (width < 1120px) {
+
+  .Footer .topWrapper {
+    flex-direction: column;
+  }
+
+}
+
+@media (width < 880px) {
+
+  .Footer .Wrapper {
+    flex-direction: column;
+  }
+
+  .Footer .topWrapper {
+    flex-direction: row;
+  }
+
+  .Footer .Wrapper .section.location {
+    width: 100%;
+  }
+
+}
+
+
+@media (width < 500px) {
+
+  .Footer .Wrapper,
+  .Footer .topWrapper {
+    gap: 7rem;
+    flex-direction: column;
+  }
+
+
+}

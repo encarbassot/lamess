@@ -1,0 +1,213 @@
+.moreInfo {
+  width: 100%;
+  font-family: Montserrat;
+  color: #233423;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem
+}
+
+.moreInfo h1 {
+  width: 100%;
+  font-family: Gobold;
+  padding: 4px;
+  font-size: 32px;
+  margin-top: 30px;
+  border-bottom: 2px solid #233423;
+}
+
+.moreInfo h2 {
+  width: 100%;
+  font-family: Gobold;
+  padding: 4px;
+  padding-left: 30px;
+  color: #ecf5dc;
+  background-color: #233423;
+  font-size: 24px;
+}
+
+.moreInfo .card {
+  padding: 20px;
+  background-color: #233423;
+  color: #ecf5dc;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.moreInfo .card>h2:first-child {
+  border-bottom: 2px solid #ecf5dc;
+  margin-bottom: 15px;
+
+}
+
+.moreInfo .versus3,
+.moreInfo .versus {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.moreInfo .versus3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.moreInfo .versus3,
+.moreInfo .versus>* {
+  width: 100%;
+  text-align: center;
+}
+
+.moreInfo .pricingsZones {
+
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  /* padding-left: 1fr;
+  padding-right: 1fr; */
+}
+
+@media (max-width:1120px) {
+  .moreInfo .pricingsZones {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width:550px) {
+  .moreInfo .pricingsZones {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.pricingsZones .plan {
+  display: inline-block;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+
+
+
+  width: 100%;
+  background-color: #ecf5dc;
+
+  border-radius: 5px;
+  color: #233423;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.pricingsZones .plan ul,
+.pricingsZones .plan .muted {
+  font-size: 14px;
+  color: #739b2d;
+}
+
+.pricingsZones .plan sup {
+
+  font-size: 40px;
+}
+
+
+
+
+
+.pricingsZones .plan header.type {
+  height: 62px;
+  border-bottom: 3px solid #daecbc;
+
+  font-family: Gobold;
+  font-weight: 800;
+  font-size: 29px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+}
+
+
+.pricingsZones .plan .price {
+  padding-bottom: 1rem;
+}
+
+.pricingsZones .plan .mainPrice {
+  padding-bottom: 9px;
+}
+
+.pricingsZones .plan .mainPrice span {
+  font-size: 32px;
+}
+
+.pricingsZones .plan .mainPrice big {
+  font-size: 90px;
+}
+
+.pricingsZones .plan .mainPrice big sup {
+  position: relative;
+}
+
+.pricingsZones .plan .secondPrice {
+  font-size: 30px;
+}
+
+
+.pricingsZones .plan .mainPrice .bottomCorner {
+  position: absolute;
+  top: 100%;
+  left: 3px;
+  font-size: 14px;
+}
+
+
+
+.pricingsZones .plan ul {
+  /* border-bottom: 1px solid #444; */
+  /* border-top: 1px solid #444; */
+  list-style: none;
+  font-size: 15px;
+  padding: 0px;
+  margin: 0px;
+
+
+}
+
+
+.pricingsZones .plan li {
+  /* border-bottom: 1px solid #494a5a; */
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  height: 52px;
+  line-height: 52px;
+}
+
+
+
+
+.pricingsZones .plan footer {
+  height: 120px;
+}
+
+.pricingsZones .plan footer .postalCodes {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
