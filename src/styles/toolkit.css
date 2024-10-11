@@ -1,0 +1,147 @@
+a {
+  color: white;
+  text-transform: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.w100 {
+  width: 100%;
+}
+
+
+.column.center {
+  align-items: center;
+}
+
+
+.max-width {
+  width: 100%;
+  max-width: 1200px;
+  padding: .6rem;
+
+}
+
+
+.button {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #B0D182;
+  box-shadow: 0 8px 32px 0 rgba(196, 229, 143, 0.933);
+  border: 1px solid rgba(244, 241, 234, 0.933);
+  color: rgb(28, 35, 21);
+  font-family: Gobold;
+
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  border-radius: 10px;
+
+  transition: all .3s;
+
+  text-align: center;
+}
+
+
+.button:hover {
+  background-color: rgb(28, 35, 21);
+  color: #B0D182;
+  text-decoration: underline;
+}
+
+
+
+
+.prevent-select {
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}
+
+
+
+
+/* BARRA SEPARADORA */
+.bottomSeparator2,
+.bottomSeparator {
+  position: relative;
+}
+
+.bottomSeparator:after,
+.bottomSeparator2:after {
+  z-index: 300;
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100px;
+  bottom: 0px;
+  background: #ecf5dc;
+  border-bottom: 30px solid #45682e;
+
+  right: 0;
+  transform-origin: bottom right;
+  box-shadow: 0px 9px 0px #45682e88;
+
+  transform: skew(0deg, -4deg) translateY(40px);
+  transition: transform 0.5s ease;
+}
+
+.bottomSeparator2:after {
+  left: 0;
+  transform-origin: bottom left;
+  transform: skew(0deg, 4deg) translateY(40px);
+}
+
+@media (min-width: 880px) {
+  .bottomSeparator:after {
+    transform: skew(0deg, -3deg) translateY(35px);
+  }
+
+  .bottomSeparator2:after {
+    transform: skew(0deg, 3deg) translateY(35px);
+  }
+}
+
+@media (min-width: 1270px) {
+  .bottomSeparator:after {
+    transform: skew(0deg, -3deg) translateY(0);
+  }
+
+  .bottomSeparator2:after {
+    transform: skew(0deg, 3deg) translateY(0);
+  }
+}
+
+@media (min-width: 1900px) {
+  .bottomSeparator:after {
+    transform: skew(0deg, -2deg) translateY(0);
+  }
+
+  .bottomSeparator2:after {
+    transform: skew(0deg, 2deg) translateY(0);
+  }
+}
+
+@media (min-width: 2900px) {
+  .bottomSeparator:after {
+    transform: skew(0deg, 0deg) translateY(0);
+  }
+
+  .bottomSeparator2:after {
+    transform: skew(0deg, 0deg) translateY(0);
+  }
+}

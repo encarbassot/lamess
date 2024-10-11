@@ -1,0 +1,20 @@
+.WhatsappButton {
+  background-color: #25d366;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  height: 70px;
+  width: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.WhatsappButton .ico {
+  width: 40px;
+  height: 40px;
+}

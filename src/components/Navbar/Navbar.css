@@ -1,0 +1,153 @@
+.Navbar {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  --navbar-height: 50px;
+
+  backdrop-filter: blur(10px);
+
+}
+
+.Navbar a {
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Navbar a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+
+.Navbar img {
+  max-height: 100%;
+}
+
+
+.Navbar__wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+
+  padding: .6rem;
+
+  display: flex;
+  gap: .6rem;
+
+}
+
+.Navbar__content,
+.Navbar__button {
+  height: var(--navbar-height);
+  width: var(--navbar-height);
+  border-radius: 5px;
+  background-color: rgba(117, 117, 117, 0.626);
+
+
+}
+
+.Navbar .landscapeLinks {
+  display: flex;
+  gap: .6rem;
+}
+
+.Navbar__content {
+  padding: 5px 15px;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Navbar__content>* {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.Navbar__drop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 8, 8, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 99;
+  pointer-events: none;
+
+  backdrop-filter: blur(5px);
+}
+
+.Navbar__drop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.Navbar__drop__wrapper {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  padding: .6rem;
+  padding-top: 0;
+}
+
+.Navbar__drop__content {
+  background-color: #555;
+  border-radius: 5px;
+  width: 100%;
+  padding-left: .6rem;
+  padding-right: .6rem;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+.Navbar__drop__content:not(.open) {
+  opacity: 0;
+  display: none;
+}
+
+.Navbar__drop__content>a {
+  font-size: 32px;
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  width: 100%;
+}
+
+.Navbar__drop__content>a:not(:last-child) {
+  border-bottom: 1px solid white;
+}
+
+/* RESPONSIVE */
+
+.Navbar__drop__wrapper,
+.Navbar__button,
+.Navbar__drop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .Navbar__drop__wrapper,
+  .Navbar__button,
+  .Navbar__drop {
+    display: block;
+  }
+
+  .Navbar .hideOnPhone {
+    display: none;
+  }
+}

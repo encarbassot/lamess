@@ -1,0 +1,55 @@
+.Compromiso {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  height: 500px;
+  padding: 0 !important;
+
+  margin-top: 30px;
+
+}
+
+
+.Compromiso .imgBg {
+  background-position: center !important;
+  background-size: cover !important;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+/* .Compromiso .imgBg:hover {
+  transform: scale(1.5);
+  transition: all ease-out .7s;
+}
+ */
+
+.Compromiso .Text {
+  font-family: Montserrat;
+  font-size: 20px;
+  padding: 3rem;
+  font-weight: 500;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Compromiso .Text .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Compromiso .Text:hover {
+  background-color: #0008;
+}
