@@ -1,4 +1,4 @@
-export const BASENAME = "/lamess"
+export const BASENAME = ""
 
 
 

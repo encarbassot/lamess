@@ -12,7 +12,7 @@ export default function WhatsappButton(){
 
   return <div className="WhatsappButton">
 
-    <a href={contacto_link_whatsapp}>
+    <a href={contacto_link_whatsapp} target="_blank">
       <IcoWhatsapp className="ico"/>
 
     </a>

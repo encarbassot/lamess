@@ -76,15 +76,15 @@ export default function CalculatorMap(){
 
     const total = endZone 
       ? pickUpPriceWeekday + dropPriceWeekday
-      : pickUpPriceWeekday + (hours * driverHourlyRateWeekday)
+      : (hours * driverHourlyRateWeekday) //pickUpPriceWeekday +
 
     const totalWeekend = endZone 
       ? pickUpPriceHoliday + dropPriceHoliday
-      : pickUpPriceHoliday + (hours * driverHourlyRateWeekend)
+      : (hours * driverHourlyRateWeekend) //pickUpPriceHoliday +
 
     const totalHoliday = endZone 
       ? pickUpPriceHoliday + dropPriceHoliday
-      : pickUpPriceHoliday + (hours * driverHourlyRateHoliday)
+      : (hours * driverHourlyRateHoliday) //pickUpPriceHoliday +
 
     const result = {
       startZoneName:startZone?.name,
@@ -196,22 +196,25 @@ export default function CalculatorMap(){
                 desglose.tarifaPorHoras && <>
                 <div className="tarifaHoras">
                     <h2>Laborables</h2>
-                    <p>Recogida: <span>{desglose.pickUpPrice[0]} €</span></p>
+                    {/* <p>Recogida: <span>{desglose.pickUpPrice[0]} €</span></p> */}
                     <p>{desglose.duration}h <span>({driverHourlyRateWeekday}€/h)</span></p>
+                    <p><small>* tiempo aproximado</small></p>
                     <hr />
                     <p className="total">Total: <span>{desglose.total[0]} €</span></p>
                   </div>
                   <div className="tarifaHoras">
                     <h2>Sábados</h2>
-                    <p>Recogida: <span>{desglose.pickUpPrice[1]} €</span></p>
+                    {/* <p>Recogida: <span>{desglose.pickUpPrice[1]} €</span></p> */}
                     <p>{desglose.duration}h <span>({driverHourlyRateWeekend}€/h)</span></p>
+                    <p><small>* tiempo aproximado</small></p>
                     <hr />
                     <p className="total">Total: <span>{desglose.total[1]} €</span></p>
                   </div>
                   <div className="tarifaHoras">
                     <h2>Festivos</h2>
-                    <p>Recogida: <span>{desglose.pickUpPrice[2]} €</span></p>
+                    {/* <p>Recogida: <span>{desglose.pickUpPrice[2]} €</span></p> */}
                     <p>{desglose.duration}h <span>({driverHourlyRateHoliday}€/h)</span></p>
+                    <p><small>* tiempo aproximado</small></p>
                     <hr />
                     <p className="total">Total: <span>{desglose.total[2]} €</span></p>
                   </div>

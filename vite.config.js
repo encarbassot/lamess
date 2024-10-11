@@ -6,6 +6,6 @@ import { BASENAME } from './src/config';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(),svgr()],
-  base: "/lamess/", // Set your base URL here
+  base: BASENAME + "/", // Set your base URL here
 
 })
