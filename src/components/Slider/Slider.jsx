@@ -19,83 +19,93 @@ export default function Slider({children}){
   const slideRef = useRef(null)
   
 
-  const nextSlide = () => {
-    setSlideIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
-  }
-
-  useEffect(() => {
-    if(!userInteracted){
-      const timeout = setTimeout(() => {
-        nextSlide() 
-      }, 7000)
-  
-      return () => clearTimeout(timeout)
-    }
-  }, [slideIndex,userInteracted])
-
 
   useEffect(() => {
     if (slideRef.current) {
       const slideWidth = slideRef.current.offsetWidth;
       slideRef.current.scrollLeft = slideWidth * slideIndex
-      console.log("SLIDE")
     }
   }, [slideIndex])
 
 
   function handleButton(i){
-    setSlideIndex(i)
     setUserInteracted(true)
+    setSlideIndex(i)
   }
 
 
 
-
-  // DRAGGING
-
-  // Function to handle when the mouse or touch starts dragging
-  const handleDragStart = (e) => {
+  // DRAGGING PC
+  function handleDragStart(e){
     setIsDragging(true);
     setUserInteracted(true)
     setStartX(e.pageX || e.touches[0].pageX);
     setScrollLeft(slideRef.current.scrollLeft);
-  };
+  }
 
-  // Function to handle dragging
-  const handleDragMove = (e) => {
-    setUserInteracted(true)
-    
+  function handleDragMove(e){    
     if (!isDragging) return;
     const x = e.pageX || e.touches[0].pageX;
     const walk = (x - startX) * 2; // Amount of movement
     slideRef.current.scrollLeft = scrollLeft - walk;
-  };
+  }
 
-  const handleDragEnd = () => {
+  function handleDragEnd(e){
+    setUserInteracted(true);
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    // Get the current scroll position
+    const { scrollWidth, clientWidth, scrollLeft:position } = slideRef.current;
+    const totalSlides = childrenArray.length;
+    const slideWidth = scrollWidth / totalSlides;
+
+    // Calculate the drag distance
+    const dragDistance = scrollLeft - position
+    const newIndex = Math.round(position/slideWidth)
+
+    if(newIndex != slideIndex){
+      setSlideIndex(newIndex)
+      return
+    }
+
+    //con un poco de scroll mueve a la siguiente o anterior
+    if(Math.abs(dragDistance) > 90){//threshold
+      if(dragDistance>0){
+        setSlideIndex(Math.max(0,newIndex-1))
+      }else{
+        setSlideIndex(Math.min(newIndex +1,totalSlides-1))
+      }
+      return
+    }
+
+    //retorna a la anterior
+    slideRef.current.scrollLeft = slideWidth * newIndex
+
+  }
+
+  function handleTouchEnd(e){
+
     setUserInteracted(true);
     setIsDragging(false);
 
     // Get the current scroll position
-    const { scrollWidth, clientWidth } = slideRef.current;
+    const { scrollWidth, clientWidth, scrollLeft:position } = slideRef.current;
     const totalSlides = childrenArray.length;
     const slideWidth = scrollWidth / totalSlides;
 
-    // Calculate the center index based on the scroll position
-    const centerIndex = Math.round(slideRef.current.scrollLeft / slideWidth);
-    
     // Calculate the drag distance
-    const dragDistance = scrollLeft - slideRef.current.scrollLeft
+    const dragDistance = scrollLeft - position
+    const newIndex = Math.round(position/slideWidth)
 
-    // Only update slideIndex if the drag distance exceeds the threshold
-    if(slideIndex === centerIndex){
-      const k = dragDistance > 0 ? -1 : 1
-      setSlideIndex(prev=>Math.max(0, Math.min(prev+k, totalSlides - 1)));
-
+    if(newIndex === slideIndex){
+      slideRef.current.scrollLeft = slideWidth * newIndex
     }else{
-      setSlideIndex(Math.max(0, Math.min(centerIndex, totalSlides - 1)));
+      setSlideIndex(newIndex)
     }
-  };
 
+
+  }
 
   return <div className="Slider">
 
@@ -105,10 +115,10 @@ export default function Slider({children}){
       onMouseDown={handleDragStart}
         onMouseMove={handleDragMove}
         onMouseUp={handleDragEnd}
-        // onMouseLeave={handleDragEnd}
-        // onTouchStart={handleDragStart}
+        onMouseLeave={handleDragEnd}
+        onTouchStart={handleDragStart}
         // onTouchMove={handleDragMove}
-        onTouchEnd={handleDragEnd}
+        onTouchEnd={()=> setTimeout(handleTouchEnd,1000)}
       className={"prevent-select "+(isDragging ? 'grabbing' : 'grab')}
     >
 

@@ -40,7 +40,6 @@ export default function Index(){
     {/* OPEN EVERYDAY */}
     <Hero/> 
    
-    {/* COMPROMISO Y SERVICIO */}
   </section>
 
 
