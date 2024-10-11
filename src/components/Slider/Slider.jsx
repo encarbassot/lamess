@@ -12,53 +12,72 @@ export default function Slider({children}){
   const [slideIndex,setSlideIndex] = useState(0)
   const [userInteracted, setUserInteracted] = useState(false)
   
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
   
+  const timeoutRef = useRef(null)
   const slideRef = useRef(null)
   
+  
+  useEffect(() => {
+    if (!userInteracted) {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+      timeoutRef.current = setTimeout(() => {
+        setSlideIndex((prevIndex) => (prevIndex + 1) % childrenArray.length);
+      }, 2000);
+
+      return () => clearTimeout(timeoutRef.current)
+    }
+  }, [slideIndex, userInteracted]);
 
 
+  // cuando slideIndex cambia, actualiza el scroll para mostrar la slide correcta
   useEffect(() => {
     if (slideRef.current) {
-      const slideWidth = slideRef.current.offsetWidth;
+      const slideWidth = slideRef.current.offsetWidth
       slideRef.current.scrollLeft = slideWidth * slideIndex
     }
   }, [slideIndex])
 
 
   function handleButton(i){
-    setUserInteracted(true)
+    handleUserInteraction()
     setSlideIndex(i)
   }
+
+  const handleUserInteraction = () => {
+    setUserInteracted(true)
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+  };
 
 
 
   // DRAGGING PC
   function handleDragStart(e){
-    setIsDragging(true);
-    setUserInteracted(true)
-    setStartX(e.pageX || e.touches[0].pageX);
-    setScrollLeft(slideRef.current.scrollLeft);
+    setIsDragging(true)
+    handleUserInteraction()
+    setStartX(e.pageX || e.touches[0].pageX)
+    setScrollLeft(slideRef.current.scrollLeft)
   }
 
   function handleDragMove(e){    
-    if (!isDragging) return;
-    const x = e.pageX || e.touches[0].pageX;
-    const walk = (x - startX) * 2; // Amount of movement
-    slideRef.current.scrollLeft = scrollLeft - walk;
+    if (!isDragging) return
+    const x = e.pageX || e.touches[0].pageX
+    const walk = (x - startX) * 2 // Amount of movement
+    slideRef.current.scrollLeft = scrollLeft - walk
   }
 
   function handleDragEnd(e){
-    setUserInteracted(true);
-    if (!isDragging) return;
-    setIsDragging(false);
+    handleUserInteraction()
+    if (!isDragging) return
+    setIsDragging(false)
 
     // Get the current scroll position
-    const { scrollWidth, clientWidth, scrollLeft:position } = slideRef.current;
-    const totalSlides = childrenArray.length;
-    const slideWidth = scrollWidth / totalSlides;
+    const { scrollWidth, clientWidth, scrollLeft:position } = slideRef.current
+    const totalSlides = childrenArray.length
+    const slideWidth = scrollWidth / totalSlides
 
     // Calculate the drag distance
     const dragDistance = scrollLeft - position
@@ -86,13 +105,13 @@ export default function Slider({children}){
 
   function handleTouchEnd(e){
 
-    setUserInteracted(true);
-    setIsDragging(false);
+    handleUserInteraction()
+    setIsDragging(false)
 
     // Get the current scroll position
-    const { scrollWidth, clientWidth, scrollLeft:position } = slideRef.current;
-    const totalSlides = childrenArray.length;
-    const slideWidth = scrollWidth / totalSlides;
+    const { scrollWidth, clientWidth, scrollLeft:position } = slideRef.current
+    const totalSlides = childrenArray.length
+    const slideWidth = scrollWidth / totalSlides
 
     // Calculate the drag distance
     const dragDistance = scrollLeft - position
