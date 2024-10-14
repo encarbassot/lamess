@@ -2,7 +2,7 @@ import "./Footer.css"
 
 import icoLocation from "../../assets/icons/actions/location.svg"
 
-import logoSquare from "../../assets/logo/logo-square.svg"
+import logoSquare from "../../assets/logo/logo-hands.svg"
 import { contacto_correo, contacto_link_correo, contacto_link_telefono, contacto_link_whatsapp, contacto_telefono, contacto_whatsapp } from "../../config"
 
 import ico_instagram from "../../assets/icons/social/instagram.svg"
@@ -69,29 +69,20 @@ export default function Footer(){
 
 
 
+          <div className="section location">
+
+            <h2>dirección</h2>
+
+              <a className="media" href="https://www.google.es/maps/place/C.+del+Bruc,+63,+Eixample,+08009+Barcelona" target="_blank" rel="noopener noreferrer">
+                <img src={icoLocation} alt="" />
+                <span>Carrer del bruc, 63, Barcelona</span>
+              </a>
+          </div>
 
         </div>
 
 
 
-        <div className="section location">
-
-          <h2>dirección</h2>
-
-            <iframe 
-                className="map"
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=es&q=Calle%20Bruc%2063,%20Local+(LA%20MESS)&t=&z=15&ie=UTF8&iwloc=B&output=embed"
-                title="Google Map"
-            >
-                <a href="https://www.gps.ie/car-satnav-gps/">Car GPS</a>
-            </iframe>
-
-
-            <a className="media" href="https://www.google.es/maps/place/C.+del+Bruc,+63,+Eixample,+08009+Barcelona" target="_blank" rel="noopener noreferrer">
-              <img src={icoLocation} alt="" />
-              <span>Carrer del bruc, 63, Barcelona</span>
-            </a>
-        </div>
 
 
 

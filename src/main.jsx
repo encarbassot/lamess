@@ -9,6 +9,7 @@ import Index from './pages/Index/index.jsx'
 import About from './pages/About/About.jsx'
 import CalculatorMap from './pages/CalculatorMap/CalculatorMap.jsx'
 import { BASENAME } from './config.js'
+import Nosotros from './pages/Nosotros/Nosotros.jsx'
 
 
 
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     element: <App />, // App is the layout component
     children: [
       {path: '/',element: <Index/>},
-      // {path: 'about',element: <About/>,},
+      {path: 'nosotros',element: <Nosotros/>,},
       {path: 'calculate',element: <CalculatorMap/>,},
     ],
   },

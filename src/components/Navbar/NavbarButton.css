@@ -21,7 +21,7 @@
 .menu-btn_burger {
   width: var(--burger-width);
   height: var(--burger-line-height);
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
 
   box-shadow: 0 2px 5px rgba(255, 201, 47, .2);

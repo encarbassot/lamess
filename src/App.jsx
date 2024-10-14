@@ -5,7 +5,6 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import WhatsappButton from './components/WhatsappButton/WhatsappButton';
 import Footer from './components/Footer/Footer';
-import Navbar2 from './components/Navbar2/Navbar2';
 
 
 function App() {
@@ -19,8 +18,7 @@ function App() {
       <div className='App'>
         <ScrollRestoration/>
 
-        {/* <Navbar/> */}
-        <Navbar2/>
+        <Navbar/>
 
         <div className='App__content'>
           <Outlet />

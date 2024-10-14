@@ -1,0 +1,65 @@
+.Nosotros {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  color: black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.Nosotros>* {
+  max-width: 1200px;
+}
+
+.Nosotros h1,
+.Nosotros h2 {
+  font-family: PeckhamPress, Gobold;
+}
+
+.Nosotros h1 {
+  font-size: 90px;
+}
+
+.Nosotros h2 {
+  font-size: 50px;
+}
+
+
+.Nosotros .card {
+  width: 100%;
+}
+
+.Nosotros .card .Text {
+  font-family: Montserrat;
+  font-size: 24px;
+}
+
+
+.Nosotros .card header {
+  position: relative;
+  overflow: hidden;
+
+  height: 400px;
+}
+
+.Nosotros .card header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.Nosotros .card header img.bottom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  bottom: 0;
+}
+
+
+.Nosotros .card .Text .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

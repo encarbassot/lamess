@@ -11,6 +11,7 @@ import { formatDuration } from "../../utils/time"
 
 import icoWarn from "../../assets/icons/actions/warn.svg"
 import MoreInfo from "./MoreInfo/MoreInfo"
+import HeroTarifas from "./HeroTarifas/HeroTarifas"
 
 export default function CalculatorMap(){
 
@@ -134,6 +135,8 @@ export default function CalculatorMap(){
   
   return <>
     <div className="CalculatorMap max-width">
+
+      <HeroTarifas/>
 
 
     {isLoading ? (

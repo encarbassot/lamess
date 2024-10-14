@@ -1,6 +1,6 @@
   import "./Navbar.css"
 import { Link } from "react-router-dom"
-import img_logo from "../../assets/logo/logo-1.png"
+import img_logo from "../../assets/logo/logo-hands-small.svg"
 import { useState } from "react"
 import NavbarButton from "./NavbarButton"
 
@@ -8,8 +8,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const links = [
-    // { to: "/about", text: "Sobre nosotros" },
+    { to: "/nosotros", text: "Sobre nosotros" },
     { to: "/calculate", text: "Calcula tu envío" },
+    { to: "https://lamess.lobolink.eu/lobo/#!//coreLogin/", text: "Zona clientes" },
   ]
 
   return (
@@ -20,7 +21,7 @@ export default function Navbar() {
           <div className="Navbar__content">
 
             <Link to="/" >
-              <img src={img_logo} alt="" />
+              <img src={img_logo} alt=""  className="logo"/>
             </Link>
 
             <div className="landscapeLinks">
