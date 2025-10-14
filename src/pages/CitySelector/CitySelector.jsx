@@ -19,7 +19,8 @@ export default function CittySelector() {
   
   return (<>
     <div className="CitySelector" style={worldBg}>
-  
+      {/* <div className="background bcn"></div> */}
+
       <img className="staff bcn" src={imgStaffBcn} alt="staff"/>
       <img className="staff mad" src={imgStaffMad} alt="staff"/>
       
@@ -33,9 +34,12 @@ export default function CittySelector() {
     
       <span className="separator"></span>
 
-      <Link className="button" to={"madrid"} ><b>Madrid</b></Link>
-      <Link className="button" to={"barcelona"} ><b>Barcelona</b></Link>
-    </div>
+      <Link className="button mad" to={"madrid"} ><b>Madrid</b></Link>
+      <Link className="button bcn" to={"barcelona"} ><b>Barcelona</b></Link>
+
+      {/* <div className="background mad"></div> */}
+
+      </div>
     
     </>)
 
