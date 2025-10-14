@@ -33,52 +33,86 @@
   font-family: Gobold;
   font-size: 30px;
   max-width: 400px;
-  
+
   text-align: center;
   line-height: 1.2;
   z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between
 }
+
 
 .CitySelector .text .center {
   margin-top: 1rem;
 }
+
 .CitySelector .text h1 {
   font-family: PeckhamPress;
   line-height: 90px;
   font-size: 80px;
   color: rgb(28, 35, 21);
 }
+
 .CitySelector .text h1 span {
   font-family: Smirnow;
   color: rgb(69, 104, 46);
   font-size: 140px;
 }
 
+.CitySelector .text p {
+  width: 80%;
+}
 
 
 
 
 
+/* LEFT HERO (MAD) */
+
+.CitySelector .split .left .wrapper {
+  .staff {
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    width: 40%;
+
+  }
+
+  a.mad {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font-family: 'Francois One', sans-serif;
+    font-weight: bold;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: #e9f5e9;
+
+    text-shadow:
+      0 0 10px rgba(102, 187, 106, 0.6),
+      0 0 25px rgba(56, 142, 60, 0.4),
+      0 0 50px rgba(27, 94, 32, 0.3);
+    filter: drop-shadow(0 0 8px rgba(102, 187, 106, 0.3));
+    transition: transform 0.6s cubic-bezier(.77, 0, .175, 1);
+  }
+}
 
 
+.CitySelector .split .left .wrapper:hover {
 
+  .staff {
+    transform: scale(1.4);
+    z-index: 100;
+    left: 10%;
+  }
 
-
-
-/* ---- SEPARATOR ---- */
-.CitySelector .separator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(80deg);
-  
-  width: max(150vh, 150vw);
-  height: 50px;
-  background-color: #ecf6dc;
-  
-  border-bottom: 10px solid #45692e;
-  
-  z-index: 2;
+  a.mad {
+    transform: scale(1.55) rotate(5deg)
+      /* smooth zoom instead of changing font-size */
+  }
 
 }
 
@@ -87,19 +121,60 @@
 
 
 
+/* RIGHT HERO (BCN)*/
+
+.CitySelector .split .right {
+
+  .staff {
+    position: absolute;
+    bottom: 0;
+    right: 3%;
+    width: 40%;
+
+  }
+
+  a.bcn {
+    position: absolute;
+    top: 40%;
+    right: 6%;
+    font-family: 'Francois One', sans-serif;
+    font-weight: bold;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: #e9f5e9;
+
+    text-shadow:
+      0 0 10px rgba(102, 187, 106, 0.6),
+      0 0 25px rgba(56, 142, 60, 0.4),
+      0 0 50px rgba(27, 94, 32, 0.3);
+    filter: drop-shadow(0 0 8px rgba(102, 187, 106, 0.3));
+    transition: transform 0.6s cubic-bezier(.77, 0, .175, 1);
+  }
+
+}
 
 
+.CitySelector .split .right:hover {
 
+  .staff {
+    transform: scale(1.4);
+    z-index: 100;
+    right: 10%;
 
+  }
 
+  a.bcn {
+    transform: scale(1.55) rotate(-5deg)
+      /* smooth zoom instead of changing font-size */
+  }
+
+}
 
 
 
 /*  ---- IMG STAFF ---- */
 .CitySelector .staff {
-  position: absolute;
   bottom: 0;
-  width: 40%;
   max-width: 80vw;
   transition: transform 0.4s ease, left 0.4s ease, right 0.4s ease;
   transform-origin: bottom;
@@ -115,20 +190,8 @@
   left: 0;
 }
 
-/* hover effect */
-.CitySelector .staff:hover {
-  transform: scale(1.4);
-  z-index: 100;
-}
 
-/* move toward center when zooming */
-.CitySelector .staff.bcn:hover {
-  transform: scale(1.4) translateX(-10%);
-}
 
-.CitySelector .staff.mad:hover {
-  transform: scale(1.4) translateX(10%);
-}
 
 
 
@@ -138,7 +201,7 @@
 /* STAFF alter SEPARATOR */
 
 
-.CitySelector .staff.bcn:hover ~ .separator {
+.CitySelector .staff.bcn:hover~.separator {
   transform: translate(-50%, -50%) rotate(120deg) scale(1.2);
   background-color: #c3e8a1;
   border-bottom-color: #2e501f;
@@ -147,8 +210,8 @@
 }
 
 
-.CitySelector .staff.mad:hover ~ .separator {
-  transform: translate(-500px, 0) rotate(100deg) scale(1.2);
+.CitySelector .staff.mad:hover~.separator {
+  transform: translate(-1500px, 0) rotate(100deg) scale(1.2);
   background-color: #c3e8a1;
   border-bottom-color: #2e501f;
   transition: all 0.4s ease;
@@ -160,19 +223,18 @@
 
 
 
+/* -- TITLES --- */
+
+
+
+
 /* ---- RESPONSIVE ---- */
 
-@media (min-width: 2100px) {
+@media (min-width: 2100px) {}
 
-}
+@media (max-width: 1070px) {}
 
-@media (max-width: 1070px) {
-
-}
-
-@media (max-width: 940px) {
-
-}
+@media (max-width: 940px) {}
 
 @media (max-width: 470px) {
 
