@@ -1,0 +1,180 @@
+.CitySelector {
+  position: relative;
+
+  width: 100vw;
+
+  height: 100dvh;
+  background-color: red;
+
+
+  background-position: center !important;
+  background-size: cover !important;
+
+  /* margin-top: 50px; */
+}
+
+.CitySelector .button {
+  font-size: 30px;
+}
+
+
+
+
+
+/* ------ SOMOS LA MESS ------  */
+
+.CitySelector .text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: black;
+  font-family: Gobold;
+  font-size: 30px;
+  max-width: 400px;
+  
+  text-align: center;
+  line-height: 1.2;
+  z-index: 5;
+}
+
+.CitySelector .text .center {
+  margin-top: 1rem;
+}
+.CitySelector .text h1 {
+  font-family: PeckhamPress;
+  line-height: 90px;
+  font-size: 80px;
+  color: rgb(28, 35, 21);
+}
+.CitySelector .text h1 span {
+  font-family: Smirnow;
+  color: rgb(69, 104, 46);
+  font-size: 140px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- SEPARATOR ---- */
+.CitySelector .separator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(80deg);
+  
+  width: max(150vh, 150vw);
+  height: 50px;
+  background-color: #ecf6dc;
+  
+  border-bottom: 10px solid #45692e;
+  
+  z-index: 2;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  ---- IMG STAFF ---- */
+.CitySelector .staff {
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  max-width: 80vw;
+  transition: transform 0.4s ease, left 0.4s ease, right 0.4s ease;
+  transform-origin: bottom;
+}
+
+.CitySelector .staff.bcn {
+  right: 0;
+}
+
+.CitySelector .staff.mad {
+  left: 0;
+}
+
+/* hover effect */
+.CitySelector .staff:hover {
+  transform: scale(1.4);
+  z-index: 100;
+}
+
+/* move toward center when zooming */
+.CitySelector .staff.bcn:hover {
+  transform: scale(1.4) translateX(-10%);
+}
+
+.CitySelector .staff.mad:hover {
+  transform: scale(1.4) translateX(10%);
+}
+
+
+
+
+/* STAFF alter SEPARATOR */
+
+
+.CitySelector .staff.bcn:hover ~ .separator {
+  transform: translate(-50%, -50%) rotate(120deg) scale(1.2);
+  background-color: #c3e8a1;
+  border-bottom-color: #2e501f;
+  transition: all 0.4s ease;
+}
+
+
+
+
+
+
+/* ---- RESPONSIVE ---- */
+
+@media (min-width: 2100px) {
+
+}
+
+@media (max-width: 1070px) {
+
+}
+
+@media (max-width: 940px) {
+
+}
+
+@media (max-width: 470px) {
+
+  .CitySelector {
+    height: 650px;
+  }
+
+  .CitySelector .text {
+    font-size: 25px;
+  }
+
+  .CitySelector .text h1 {
+    font-size: 60px;
+  }
+
+  .CitySelector .text h1 span {
+    font-size: 110px;
+  }
+}
