@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import imgWorldBg from "../../assets/backgrounds/bw-map.jpeg"
 import imgStaffBcn from "../../assets/images/personal.png"
@@ -6,14 +6,19 @@ import imgStaffMad from "../../assets/images/personal.png"
 
 import "./split.css"
 import "./CitySelector.css"  
+import { useState } from "react";
+import useOpenWebDelayed from "../../utils/useOpenWebDelayed";
 
 
 export default function CittySelector() {
+  const navigate = useNavigate()
+
+  const [leftClicked, setLeftClicked] = useState(false)
+  const [rightClicked, setRightClicked] = useState(false)
+  const openWebDelayed = useOpenWebDelayed(setLeftClicked, setRightClicked)
 
 
 
-
-  
   const worldBg = {
     background: `
       linear-gradient(
@@ -61,19 +66,19 @@ export default function CittySelector() {
 
 
 
-        <div class="split">
+        <div className="split">
           
-          <div class="right" style={worldBg}>  
+          <div className={"right"+(rightClicked?" click":"")} to={"barcelona"} style={worldBg} onMouseUp={()=>openWebDelayed("barcelona")}>  
         
-            <Link className="bcn" to={"barcelona"} ><b>Barcelona</b></Link>
+            <h2 className="bcn" ><b>Barcelona</b></h2>
             <img className="staff bcn" src={imgStaffBcn} alt="staff"/>
 
           </div>
           
-          <div class="left">
-            <div class="wrapper" style={worldBg2}> 
+          <div className={"left"+(leftClicked?" click":"")} to={"madrid"} onMouseUp={()=>openWebDelayed("madrid")}>
+            <div className="wrapper" style={worldBg2}> 
               
-            <Link className="mad" to={"madrid"} ><b>Madrid</b></Link>
+            <h2 className="mad" ><b>Madrid</b></h2>
             <img className="staff mad" src={imgStaffMad} alt="staff"/>
 
               

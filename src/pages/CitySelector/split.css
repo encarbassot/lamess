@@ -97,7 +97,9 @@ body {
 
   /* Si quieres mover .right en mobile */
   .right {
-    top: 50%;
+    /* top: 50%; */
+    top: 0;
+    /*adjust in custom*/
     left: 0;
   }
 
