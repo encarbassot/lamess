@@ -1,3 +1,28 @@
+/* 
+
+ ZINDEX
+
+
+*/
+
+.right {z-index: 100;}
+.left {z-index: 200;}
+/* .left .staff {z-index: 199;⁄} */
+.left h2 {z-index: 201;}
+.bcnElements{z-index: 250;}
+.bcnElements h2 {z-index: 251;}
+.text {z-index: 300}
+
+
+.CitySelector.leftHover .bcnElements {z-index: 150;}
+.CitySelector.leftHover .left.wrapper >* { z-index: 400;}
+
+
+.CitySelector.rightHover .bcnElements {z-index: 400;}
+
+
+
+
 .CitySelector {
   position: relative;
 
@@ -21,13 +46,35 @@
 
 
 
+
+
+.CitySelector {
+  cursor: pointer;
+}
+
+
+
+.CitySelector .bcnElements{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+
+
+/*  TEXT */
 /* ------ SOMOS LA MESS ------  */
 
 .CitySelector .text {
+  pointer-events: none;
   position: absolute;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 0.6s cubic-bezier(.77, 0, .175, 1);
 
   color: black;
   font-family: Gobold;
@@ -36,7 +83,6 @@
 
   text-align: center;
   line-height: 1.2;
-  z-index: 5;
 
   display: flex;
   flex-direction: column;
@@ -48,8 +94,7 @@
   /* blanco translúcido */
   box-shadow: 0 0 60px 40px rgba(255, 255, 255, 0.6);
   border: none;
-  border-radius: 20px;
-  border-radius: 30px;
+  border-radius: 40%;
 }
 
 
@@ -77,23 +122,29 @@
 
 
 
-.CitySelector {
+.CitySelector.rightHover .text,
+.CitySelector.leftHover .text{
   cursor: pointer;
+  transform: translate(-50%,-50%) scale(.6);
 }
 
 
 
 
-.CitySelector h2.mad,
+
+/* ------------------ TITTLES --------------------- */
+
+.CitySelector h2.mad ,
 .CitySelector h2.bcn {
   position: absolute;
-  top: 40%;
-  transform: translate(-50%, -50%);
+  top: 50%;
   font-family: 'Francois One', sans-serif;
   font-weight: bold;
-  font-size: 80px;
   text-transform: uppercase;
   color: #e9f5e9;
+  
+  /* font-size: 80px; */
+  font-size: clamp(40px, 7.5vw, 200px);
 
   text-shadow:
     0 0 10px rgba(102, 187, 106, 0.6),
@@ -103,40 +154,70 @@
   transition: transform 0.6s cubic-bezier(.77, 0, .175, 1);
 }
 
+.CitySelector h2.mad{
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
 
-/* LEFT HERO (MAD) */
-.CitySelector .split .left .wrapper {
-  .staff {
+.CitySelector h2.bcn{
+  right: 25%;
+  transform: translate(50%, -50%);
+}
+
+
+/* -hover- */
+.CitySelector.rightHover .bcnElements h2.bcn{
+  transform: scale(1.55) rotate(-5deg);  
+  /* transition: transform 1.2s cubic-bezier(0.77, 0, 0.78, 0.37); */
+
+}
+
+.CitySelector.leftHover h2.mad {
+  transform: scale(1.55) rotate(5deg);
+  /* transition: transform 1.2s cubic-bezier(0.77, 0, 0.78, 0.37); */
+}
+
+/* -clicked- */
+
+.CitySelector.rightClicked .bcnElements h2.bcn{
+  transform: scale(5) rotate(-5deg) translateX(-20%);
+}
+
+.CitySelector.leftClicked h2.mad {
+  transform: scale(5) rotate(5deg) translateX(20%);
+}
+
+/* ------------------ TITTLES --------------------- */
+
+
+
+
+
+
+
+/* LEFT HERO (MAD)*/
+
+
+
+.CitySelector .split .left .wrapper  .staff {
     position: absolute;
     bottom: 0;
-    left: 3%;
+    left: 20px;
     height: 40%;
 
-  }
-
-  h2.mad {
-
-    left: 25%;
-
-  }
 }
 
 
-.CitySelector .split .left .wrapper:hover {
-
-  .staff {
-    transform: scale(1.4);
-    z-index: 100;
+.CitySelector.leftHover .wrapper .staff {
+    transform: scale(1.4) translate(20%);
     left: 10%;
-  }
-
-  h2.mad {
-    transform: scale(1.55) rotate(5deg)
-      /* smooth zoom instead of changing font-size */
-  }
-
+  
 }
 
+.CitySelector.leftClicked .wrapper .staff {
+    transform: scale(3) translate(20%,50%);
+  
+}
 
 
 
@@ -144,36 +225,23 @@
 
 /* RIGHT HERO (BCN)*/
 
-.CitySelector .split .right {
-
-  .staff {
-    position: absolute;
-    bottom: 0;
-    right: 3%;
-    height: 40%;
+.CitySelector .bcnElements .staff {
+  position: absolute;
+  bottom: 0;
+  right: 3%;
+  height: 40%;
 
   }
 
-  h2.bcn {
-    left: 75%
-  }
+
+.CitySelector.rightHover .bcnElements .staff {
+  transform: scale(1.4);
+  right: 10%;
 
 }
 
-
-.CitySelector .split .right:hover {
-
-  .staff {
-    transform: scale(1.4);
-    z-index: 100;
-    right: 10%;
-
-  }
-
-  h2.bcn {
-    transform: scale(1.55) rotate(-5deg)
-      /* smooth zoom instead of changing font-size */
-  }
+.CitySelector.rightClicked .bcnElements .staff {
+  transform: scale(3) translate(-20%,50%);
 
 }
 
@@ -182,12 +250,10 @@
 /*  ---- IMG STAFF ---- */
 .CitySelector .staff {
   bottom: 0;
-  /* max-width: 80vw; */
-  /* max-height: 30vh; */
+  max-width: 80vw;
+  max-height: 30vh;
   transition: transform 0.4s ease, left 0.4s ease, right 0.4s ease;
   transform-origin: bottom;
-
-  z-index: 10;
 }
 
 .CitySelector .staff.bcn {
@@ -221,38 +287,10 @@
 
 /* ---- RESPONSIVE ---- */
 
-@media (min-width: 2100px) {}
-
-@media (max-width: 1070px) {}
-
-@media (max-width: 940px) {}
-
-@media (max-width: 470px) {
-
-  .CitySelector {
-    height: 650px;
-  }
-
-  .CitySelector .text {
-    font-size: 25px;
-  }
-
-  .CitySelector .text h1 {
-    font-size: 60px;
-  }
-
-  .CitySelector .text h1 span {
-    font-size: 110px;
-  }
-}
-
-
-
-
-
-
 
 @media (max-width: 768px) {
+
+
   .CitySelector .text {
     font-size: 25px;
     transform: translate(-50%, -50%);
@@ -260,6 +298,18 @@
     left: 50%;
   }
 
+
+
+
+  .CitySelector.leftHover .text{
+    transform: translate(-50%,45%) scale(.8);
+  }
+
+  .CitySelector.rightHover .text{
+    transform: translate(-50%,-140%) scale(.8);
+  }
+
+
   .CitySelector .text h1 {
     font-size: 60px;
   }
@@ -267,4 +317,56 @@
   .CitySelector .text h1 span {
     font-size: 110px;
   }
+
+
+
+  /* -titles------ */
+
+  .CitySelector h2.mad{
+    top: 20%;
+    left:75%;
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+
+  .CitySelector.leftHover h2.mad{
+    top: 20%;
+    left:75%;
+    transform: translate(-150%, -50%) rotate(10deg) scale(2);
+  }
+  
+  .CitySelector h2.bcn{
+    top: 80%;
+    right: 75%;
+    transform: translate(50%, -50%) rotate(-20deg);
+  }
+
+  .CitySelector.rightHover h2.bcn{
+    top: 80%;
+    right: 75%;
+    transform: translate(100%, -450%) rotate(15deg) scale(2) !important;
+
+  }
+  
+
+  /* -titles------ */
+
+
+
+  /* -STAFF------ */
+
+    .CitySelector .split .left .wrapper  .staff {
+      position: absolute;
+      bottom: 65%;
+      right: 0;
+      left: 20px;
+      height: 40%;
+    }
+
+    .CitySelector.leftHover .wrapper .staff {
+      transform: translate(20%,110%) scale(1.2);
+    
+  }
+
+  /* -STAFF------ */
+
 }

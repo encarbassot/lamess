@@ -35,6 +35,10 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+body:has(.CitySelector) {
+  overflow: hidden;
+}
+
 .split {
   position: relative;
   height: 100vh;
@@ -55,6 +59,10 @@ body {
 
 .left:hover {
   clip-path: polygon(0 0, 65% 0, 75% 100%, 0 100%);
+}
+
+.leftClicked .left{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 
@@ -124,6 +132,9 @@ body {
   clip-path: polygon(0 0, 35% 0, 25% 100%, 0 100%);
 }
 
+.rightClicked .left{
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%) !important; 
+}
 /* Versión móvil (vertical): contrae hacia ARRIBA/ABAJO */
 @media (max-width: 768px) {
   .split:has(.right:hover) .left {

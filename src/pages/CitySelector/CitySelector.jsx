@@ -7,17 +7,31 @@ import imgStaffMad from "../../assets/images/personal.png"
 import "./split.css"
 import "./CitySelector.css"  
 import { useState } from "react";
-import useOpenWebDelayed from "../../utils/useOpenWebDelayed";
 
 
 export default function CittySelector() {
+
   const navigate = useNavigate()
 
+
   const [leftClicked, setLeftClicked] = useState(false)
-  const [rightClicked, setRightClicked] = useState(false)
-  const openWebDelayed = useOpenWebDelayed(setLeftClicked, setRightClicked)
+  const [rightClicked, setRightClicked] = useState(false)  
 
+  const [leftHover, setLeftHover] = useState(false);
+  const [rightHover, setRightHover] = useState(false);
 
+  const openWebDelayed = (url, delay = 600) => {
+
+    console.log("Opening", url, "in", delay, "ms")
+
+    setRightClicked(url === 'barcelona')
+    setLeftClicked(url === 'madrid')
+
+    setTimeout(() => {
+      navigate(`/${url}`)
+      console.log("Navigating to", url)
+    }, delay)
+  }
 
   const worldBg = {
     background: `
@@ -43,52 +57,96 @@ export default function CittySelector() {
     backgroundPosition: 'center 10px', // or "center -10px"
   };
 
-  return (<>
-    <div className="CitySelector">
-      {/* <div className="background bcn"></div> */}
 
+
+  // Construye la clase del contenedor con flags de hover
+  const citySelectorClass =
+  "CitySelector" +
+  (leftHover ? " leftHover" : "") +
+  (rightHover ? " rightHover" : "") +
+  (leftClicked ? " leftClicked" : "") +
+  (rightClicked ? " rightClicked" : "")
+
+
+
+  
+  return (<>
+    <div         
+    
+      className={citySelectorClass}    
+      onMouseLeave={() => {
+        setLeftHover(false);
+        setRightHover(false);
+        setLeftClicked(false);
+        setRightClicked(false);
+      }}
+
+    >
+
+
+
+
+
+    
       <div className="text">
         <h1>SOMOS <br/><span>LA MESS</span></h1>
         <p>Una empresa de transporte sostenible.</p>
         <div className="center">
-          <Link to="/nosotros" className="button">Conocenos</Link>
+          <Link to="/nosotros" className="button" relative="path">Conocenos</Link>
         </div>
       </div>
 
-      {/* 
-      
-    
-      <span className="separator"></span>
-
-      
-    <div className="background mad"></div> */}
 
 
 
 
-        <div className="split">
-          
-          <div className={"right"+(rightClicked?" click":"")} to={"barcelona"} style={worldBg} onMouseUp={()=>openWebDelayed("barcelona")}>  
+      <div className="split">
         
-            <h2 className="bcn" ><b>Barcelona</b></h2>
-            <img className="staff bcn" src={imgStaffBcn} alt="staff"/>
 
-          </div>
-          
-          <div className={"left"+(leftClicked?" click":"")} to={"madrid"} onMouseUp={()=>openWebDelayed("madrid")}>
-            <div className="wrapper" style={worldBg2}> 
-              
-            <h2 className="mad" ><b>Madrid</b></h2>
+
+        <div className="right"
+          style={worldBg} 
+          onMouseEnter={() => { setRightHover(true); setLeftHover(false); }}
+          onMouseUp={()=>openWebDelayed("barcelona")}>  
+        </div>
+        
+        <div 
+          className="left"
+          onMouseUp={()=>openWebDelayed("madrid")}         
+          onMouseEnter={() => { setLeftHover(true); setRightHover(false); }}
+        >
+          <div className="wrapper" style={worldBg2}>             
+            <h2 className="mad">MADRID</h2>
             <img className="staff mad" src={imgStaffMad} alt="staff"/>
 
-              
-            </div>
           </div>
-
         </div>
 
+  
+  
+  
+  
       </div>
+
+
+
+      <div className="bcnElements">
+        <h2 className="bcn">Barcelona</h2>
+        <img className="staff bcn" src={imgStaffBcn} alt="staff"/>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
     
-    </>)
+  </>)
 
 }

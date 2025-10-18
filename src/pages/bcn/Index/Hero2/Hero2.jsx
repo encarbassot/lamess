@@ -25,7 +25,7 @@ export default function Hero2({}){
       <h1>SOMOS <br/><span>LA MESS</span></h1>
       <p>Una empresa de transporte sostenible en Barcelona.</p>
       <div className="center">
-        <Link to="/nosotros" className="button">Conocenos</Link>
+        <Link to="/nosotros" className="button" relative="path">Conocenos</Link>
       </div>
     </div>
 
