@@ -61,9 +61,10 @@ body:has(.CitySelector) {
   clip-path: polygon(0 0, 65% 0, 75% 100%, 0 100%);
 }
 
-.leftClicked .left{
+.leftClicked .left {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
+
 
 
 
@@ -132,12 +133,72 @@ body:has(.CitySelector) {
   clip-path: polygon(0 0, 35% 0, 25% 100%, 0 100%);
 }
 
-.rightClicked .left{
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%) !important; 
+.rightClicked .left {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%) !important;
 }
+
 /* Versión móvil (vertical): contrae hacia ARRIBA/ABAJO */
 @media (max-width: 768px) {
   .split:has(.right:hover) .left {
     clip-path: polygon(0 0, 100% 0, 100% 45%, 0 25%);
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ANIMATION */
+.CitySelector .left {
+  animation: pulseClip 4s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .CitySelector .left {
+    animation: pulseVertical 4s ease-in-out infinite !important;
+  }
+}
+
+
+
+.CitySelector.leftHover .left,
+.CitySelector.rightHover .left {
+  animation: none !important;
+}
+
+@keyframes pulseVertical {
+
+  0%,
+  100% {
+    /* resting position */
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 38%);
+  }
+
+  25% {
+    /* left corner dips slightly */
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 42%);
+  }
+
+  75% {
+    /* lift both corners up subtly */
+    clip-path: polygon(0 0, 100% 0, 100% 52%, 0 36%);
+  }
+}
+
+
+/* ✨ Animación looping */
+@keyframes pulseClip {
+
+  0%,
+  100% {
+    clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(0 0, 43% 0, 63% 100%, 0 100%);
   }
 }

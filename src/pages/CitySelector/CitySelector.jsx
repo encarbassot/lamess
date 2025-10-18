@@ -7,12 +7,12 @@ import imgStaffMad from "../../assets/images/personal.png"
 import "./split.css"
 import "./CitySelector.css"  
 import { useState } from "react";
+import useDelayNavigate from "../../utils/useDelayNavigate";
 
 
 export default function CittySelector() {
 
-  const navigate = useNavigate()
-
+  const delayNavigate = useDelayNavigate()
 
   const [leftClicked, setLeftClicked] = useState(false)
   const [rightClicked, setRightClicked] = useState(false)  
@@ -20,17 +20,15 @@ export default function CittySelector() {
   const [leftHover, setLeftHover] = useState(false);
   const [rightHover, setRightHover] = useState(false);
 
-  const openWebDelayed = (url, delay = 600) => {
+  const openWebDelayed = (url) => {
+    
+    setRightClicked(url === "barcelona");
+    setLeftClicked(url === "madrid");
 
-    console.log("Opening", url, "in", delay, "ms")
+    delayNavigate(`/${url}`, 600, () => {
+      console.log("Navigated to", url);
+    });
 
-    setRightClicked(url === 'barcelona')
-    setLeftClicked(url === 'madrid')
-
-    setTimeout(() => {
-      navigate(`/${url}`)
-      console.log("Navigating to", url)
-    }, delay)
   }
 
   const worldBg = {
@@ -90,10 +88,10 @@ export default function CittySelector() {
     
       <div className="text">
         <h1>SOMOS <br/><span>LA MESS</span></h1>
-        <p>Una empresa de transporte sostenible.</p>
-        <div className="center">
+        <p>La mejor empresa de transporte sostenible.</p>
+        {/* <div className="center">
           <Link to="/nosotros" className="button" relative="path">Conocenos</Link>
-        </div>
+        </div> */}
       </div>
 
 

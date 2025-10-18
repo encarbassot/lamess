@@ -97,6 +97,8 @@
     transform: none;
     top: 90px;
   }
+
+
 }
 
 @media (max-width: 940px) {
@@ -106,18 +108,29 @@
   }
 
   .Hero2 .text {
-    left: 30px;
-    top: 30px;
+    left: 90px;
+    top: 100px;
     transform: none;
   }
 
   .Hero2 .personal {
     height: auto;
-    width: 70%;
+    width: 60%;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 630px) {
+
+  .Hero2 {
+    height: 100vh;
+  }
+
+  .Hero2 .text {
+    left: 50%;
+    top: 150px;
+    transform: translate(-50%, 0);
+  }
+
   .Hero2 .personal {
     height: auto;
     width: 100%;
@@ -125,10 +138,6 @@
 }
 
 @media (max-width: 470px) {
-
-  .Hero2 {
-    height: 650px;
-  }
 
   .Hero2 .text {
     font-size: 25px;

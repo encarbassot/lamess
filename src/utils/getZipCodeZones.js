@@ -2,9 +2,14 @@ import axios from "axios"
 import { BASENAME } from "../config"
 import Zone from "./Zone"
 
-export default async function getZipCodeZones(){
+export default async function getZipCodeZones(zone){
 
-  const url = BASENAME + "/k08.kml"
+
+  const files = {
+    bcn: "/k08.kml",
+    mad: "/k28.kml"
+  }
+  const url = BASENAME + files[zone]
   //https://www.codigospostales.com/kml/k08.kml
   
   try {

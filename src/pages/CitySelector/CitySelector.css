@@ -5,20 +5,44 @@
 
 */
 
-.right {z-index: 100;}
-.left {z-index: 200;}
+.right {
+  z-index: 100;
+}
+
+.left {
+  z-index: 200;
+}
+
 /* .left .staff {z-index: 199;⁄} */
-.left h2 {z-index: 201;}
-.bcnElements{z-index: 250;}
-.bcnElements h2 {z-index: 251;}
-.text {z-index: 300}
+.left h2 {
+  z-index: 201;
+}
+
+.bcnElements {
+  z-index: 250;
+}
+
+.bcnElements h2 {
+  z-index: 251;
+}
+
+.text {
+  z-index: 300
+}
 
 
-.CitySelector.leftHover .bcnElements {z-index: 150;}
-.CitySelector.leftHover .left.wrapper >* { z-index: 400;}
+.CitySelector.leftHover .bcnElements {
+  z-index: 150;
+}
+
+.CitySelector.leftHover .left.wrapper>* {
+  z-index: 400;
+}
 
 
-.CitySelector.rightHover .bcnElements {z-index: 400;}
+.CitySelector.rightHover .bcnElements {
+  z-index: 400;
+}
 
 
 
@@ -38,6 +62,17 @@
   /* margin-top: 50px; */
 }
 
+.CitySelector .left {
+  animation: pulseClip 4s ease-in-out infinite;
+}
+
+.CitySelector.leftHover .left,
+.CitySelector.rightHover .left {
+  animation: none;
+}
+
+
+
 .CitySelector .button {
   font-size: 30px;
 }
@@ -54,7 +89,7 @@
 
 
 
-.CitySelector .bcnElements{
+.CitySelector .bcnElements {
   position: absolute;
   top: 0;
   right: 0;
@@ -123,9 +158,9 @@
 
 
 .CitySelector.rightHover .text,
-.CitySelector.leftHover .text{
+.CitySelector.leftHover .text {
   cursor: pointer;
-  transform: translate(-50%,-50%) scale(.6);
+  transform: translate(-50%, -50%) scale(.6);
 }
 
 
@@ -134,7 +169,7 @@
 
 /* ------------------ TITTLES --------------------- */
 
-.CitySelector h2.mad ,
+.CitySelector h2.mad,
 .CitySelector h2.bcn {
   position: absolute;
   top: 50%;
@@ -142,7 +177,7 @@
   font-weight: bold;
   text-transform: uppercase;
   color: #e9f5e9;
-  
+
   /* font-size: 80px; */
   font-size: clamp(40px, 7.5vw, 200px);
 
@@ -154,20 +189,20 @@
   transition: transform 0.6s cubic-bezier(.77, 0, .175, 1);
 }
 
-.CitySelector h2.mad{
+.CitySelector h2.mad {
   left: 25%;
   transform: translate(-50%, -50%);
 }
 
-.CitySelector h2.bcn{
+.CitySelector h2.bcn {
   right: 25%;
   transform: translate(50%, -50%);
 }
 
 
 /* -hover- */
-.CitySelector.rightHover .bcnElements h2.bcn{
-  transform: scale(1.55) rotate(-5deg);  
+.CitySelector.rightHover .bcnElements h2.bcn {
+  transform: scale(1.55) rotate(-5deg);
   /* transition: transform 1.2s cubic-bezier(0.77, 0, 0.78, 0.37); */
 
 }
@@ -179,7 +214,7 @@
 
 /* -clicked- */
 
-.CitySelector.rightClicked .bcnElements h2.bcn{
+.CitySelector.rightClicked .bcnElements h2.bcn {
   transform: scale(5) rotate(-5deg) translateX(-20%);
 }
 
@@ -199,24 +234,24 @@
 
 
 
-.CitySelector .split .left .wrapper  .staff {
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    height: 40%;
+.CitySelector .split .left .wrapper .staff {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  height: 40%;
 
 }
 
 
 .CitySelector.leftHover .wrapper .staff {
-    transform: scale(1.4) translate(20%);
-    left: 10%;
-  
+  transform: scale(1.4) translate(20%);
+  left: 10%;
+
 }
 
 .CitySelector.leftClicked .wrapper .staff {
-    transform: scale(3) translate(20%,50%);
-  
+  transform: scale(3) translate(20%, 50%);
+
 }
 
 
@@ -231,7 +266,7 @@
   right: 3%;
   height: 40%;
 
-  }
+}
 
 
 .CitySelector.rightHover .bcnElements .staff {
@@ -241,7 +276,7 @@
 }
 
 .CitySelector.rightClicked .bcnElements .staff {
-  transform: scale(3) translate(-20%,50%);
+  transform: scale(3) translate(-20%, 50%);
 
 }
 
@@ -301,12 +336,12 @@
 
 
 
-  .CitySelector.leftHover .text{
-    transform: translate(-50%,45%) scale(.8);
+  .CitySelector.leftHover .text {
+    transform: translate(-50%, 45%) scale(.8);
   }
 
-  .CitySelector.rightHover .text{
-    transform: translate(-50%,-140%) scale(.8);
+  .CitySelector.rightHover .text {
+    transform: translate(-50%, -140%) scale(.8);
   }
 
 
@@ -322,31 +357,31 @@
 
   /* -titles------ */
 
-  .CitySelector h2.mad{
+  .CitySelector h2.mad {
     top: 20%;
-    left:75%;
+    left: 75%;
     transform: translate(-50%, -50%) rotate(10deg);
   }
 
-  .CitySelector.leftHover h2.mad{
+  .CitySelector.leftHover h2.mad {
     top: 20%;
-    left:75%;
+    left: 75%;
     transform: translate(-150%, -50%) rotate(10deg) scale(2);
   }
-  
-  .CitySelector h2.bcn{
+
+  .CitySelector h2.bcn {
     top: 80%;
     right: 75%;
     transform: translate(50%, -50%) rotate(-20deg);
   }
 
-  .CitySelector.rightHover h2.bcn{
+  .CitySelector.rightHover h2.bcn {
     top: 80%;
     right: 75%;
     transform: translate(100%, -450%) rotate(15deg) scale(2) !important;
 
   }
-  
+
 
   /* -titles------ */
 
@@ -354,17 +389,17 @@
 
   /* -STAFF------ */
 
-    .CitySelector .split .left .wrapper  .staff {
-      position: absolute;
-      bottom: 65%;
-      right: 0;
-      left: 20px;
-      height: 40%;
-    }
+  .CitySelector .split .left .wrapper .staff {
+    position: absolute;
+    bottom: 65%;
+    right: 0;
+    left: 20px;
+    height: 40%;
+  }
 
-    .CitySelector.leftHover .wrapper .staff {
-      transform: translate(20%,110%) scale(1.2);
-    
+  .CitySelector.leftHover .wrapper .staff {
+    transform: translate(20%, 110%) scale(1.2);
+
   }
 
   /* -STAFF------ */

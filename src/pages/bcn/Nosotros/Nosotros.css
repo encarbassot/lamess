@@ -11,6 +11,11 @@
   max-width: 1200px;
 }
 
+.Nosotros .first h1,
+.Nosotros .first h2 {
+  text-align: right;
+}
+
 .Nosotros h1,
 .Nosotros h2 {
   font-family: PeckhamPress, Gobold;
