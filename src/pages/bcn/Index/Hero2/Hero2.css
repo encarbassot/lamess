@@ -76,6 +76,10 @@
 }
 
 .Hero2 .text h1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   font-family: PeckhamPress;
   line-height: 90px;
   font-size: 80px;
@@ -86,6 +90,14 @@
   font-family: Smirnow;
   color: rgb(69, 104, 46);
   font-size: 140px;
+}
+
+.Hero2 .text h1 img {
+  position: absolute;
+  width: 70px;
+  transform: rotate(-20deg);
+  bottom: 0px;
+  right: -50px;
 }
 
 @media (max-width: 1070px) {

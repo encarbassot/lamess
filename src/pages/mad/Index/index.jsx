@@ -42,7 +42,7 @@ export default function Index(){
           <h1>¡Descubre Nuestras Tarifas y Calcula Tu Envío!</h1>
           <p>Ofrecemos soluciones logísticas rápidas y sostenibles. Consulta nuestras tarifas por zonas y accede al calculador de precios personalizado.</p>
           <div className="row">
-          <Link className="button" to="/barcelona/calculate"><b>Calcular envío</b></Link>
+          <Link className="button" to="/madrid/calculate"><b>Calcular envío</b></Link>
           <HashLink className="button" to={"calculate#Tarifas"} ><b>Ver tarifas</b></HashLink>
           </div>
 

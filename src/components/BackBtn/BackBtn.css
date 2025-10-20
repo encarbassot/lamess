@@ -46,7 +46,7 @@
 
 
 
-
+.BackBtn.is-idle,
 .BackBtn.is-scrolled {
   transform: translateZ(0) rotate(-10deg) scale(0.6);
   opacity: 0.85;

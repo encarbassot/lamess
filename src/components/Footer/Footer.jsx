@@ -73,9 +73,9 @@ export default function Footer(){
 
             <h2>dirección</h2>
 
-              <a className="media" href="https://www.google.es/maps/place/C.+del+Bruc,+63,+Eixample,+08009+Barcelona" target="_blank" rel="noopener noreferrer">
+              <a className="media" href="https://maps.app.goo.gl/9SGJBH3bWxDjHWkj9" target="_blank" rel="noopener noreferrer">
                 <img src={icoLocation} alt="" />
-                <span>Carrer del bruc, 63, Barcelona</span>
+                <span>Carrer de la Diputació, 469, Barcelona</span>
               </a>
           </div>
 

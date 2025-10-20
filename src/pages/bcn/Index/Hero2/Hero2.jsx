@@ -5,6 +5,9 @@ import imgWorldBg from "../../../../assets/backgrounds/bw-map.jpeg"
 import imgStaff from "../../../../assets/images/personal.png"
 import { Link } from "react-router-dom"
 
+import icoBcn from "../../../../assets/icons/actions/bcn-black.svg"
+import icoMad from "../../../../assets/icons/actions/mad-black.svg"
+
 export default function Hero2({}){
 
 
@@ -22,7 +25,11 @@ export default function Hero2({}){
 
 
     <div className="text">
-      <h1>SOMOS <br/><span>LA MESS</span></h1>
+      <h1>
+        SOMOS
+        <span>LA MESS</span>
+        <img src={icoBcn} alt="" />
+      </h1>
       <p>La mejor empresa de transporte sostenible en Barcelona y Madrid.</p>
       <div className="center">
         <Link to="/barcelona/nosotros" className="button">Conocenos</Link>

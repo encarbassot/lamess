@@ -22,8 +22,12 @@
 .CalculatorMap .map-wrapper {
   height: 100%;
   z-index: 10;
-}
 
+  background-color: #45682e;
+  gap: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+}
 
 
 .CalculatorMap .map-wrapper,
@@ -34,7 +38,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: .6rem;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
 }
@@ -62,7 +66,8 @@
 
 
 .CalculatorMap .desgloseWarn {
-  background-color: #ff9800;
+  background-color: #ffbe2a;
+  color: #233423;
   width: 100%;
   border-radius: 5px;
   display: flex;
@@ -80,7 +85,8 @@
 
 .CalculatorMap .desglose .tarifaHoras,
 .CalculatorMap .desglose .tarifaZonas {
-  background-color: #232323;
+  background-color: #ecf5dc;
+  color: #233423;
 
   border-radius: 5px;
   padding: 1rem;

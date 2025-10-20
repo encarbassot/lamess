@@ -6,22 +6,23 @@ import icoBack from "../../assets/icons/actions/back.svg"
 import icoHome from "../../assets/icons/actions/home.svg"
 import icoBcn from "../../assets/icons/actions/bcn.svg"
 import icoMad from "../../assets/icons/actions/mad.svg"
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import useAnimatedDiv from '../../utils/useAnimatedDiv';
   
 export default function BackBtn({to="/",children}) {
 
   const navigate = useDelayNavigate()
   const { pathname } = useLocation();
 
-  const [isClicked, setIsClicked] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false);
 
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 1);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const {
+    isClicked, isScrolled, isIdle,
+    setIsClicked, activityHandlers
+  } = useAnimatedDiv({
+    idleMs: 3200,
+    topThreshold: 1,
+    resetDeps: [pathname], // al cambiar de ruta se reinicia el idle
+  });
 
 
   const icon = (() => {
@@ -31,27 +32,19 @@ export default function BackBtn({to="/",children}) {
     return null
   })();
   
-
   function back() {
     setIsClicked(true);
-  
-    // Pop last part of the current path (e.g. /barcelona/nosotros -> /barcelona)
     const segments = pathname.split("/").filter(Boolean);
-    segments.pop(); // remove the last segment
+    segments.pop();
     const parentPath = "/" + segments.join("/");
-  
-    // Navigate with delay
-    navigate(parentPath || "/", () => {
-      setIsClicked(false);
-    });
-  
-    // fallback reset in case callback didn’t trigger
+    navigate(parentPath || "/", () => setIsClicked(false));
     setTimeout(() => setIsClicked(false), 800);
   }
   
   return (
     <button 
-      className={`BackBtn${isClicked ? " click" : ""}${isScrolled ? " is-scrolled" : ""}`}
+      {...activityHandlers}
+      className={`BackBtn`+ (isClicked ? " click" : "")+(isScrolled ? " is-scrolled" : "")+(isIdle ? " is-idle" : "")}
       aria-label="Back" 
       onClick={()=>back()}
       onMouseUp={()=>setIsClicked(true)}

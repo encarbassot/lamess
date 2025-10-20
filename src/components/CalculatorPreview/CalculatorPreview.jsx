@@ -3,33 +3,21 @@
 
 import "./CalculatorPreview.css"
 
-import IcoWhatsapp from "../../assets/icons/social/whatsapp.svg?react"
-import { contacto_link_whatsapp } from "../../config"
-
 import imgScreenshotBcn from "../../assets/images/calculator.png"
-import { useEffect, useState } from "react";
 import useDelayNavigate from "../../utils/useDelayNavigate";
+import useAnimatedDiv from "../../utils/useAnimatedDiv";
 
 export default function CalculatorPreview(){
 
   const navigate = useDelayNavigate()
 
-  const [isClicked, setIsClicked] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMounted,setIsMounted] = useState(false)
 
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 1);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-
-  useEffect(()=>{
-    setIsMounted(true)
-  },[])
-
+  const {
+    isClicked, isScrolled, isMounted, isIdle,
+    setIsClicked, activityHandlers
+  } = useAnimatedDiv({
+    idleMs: 3500,
+    topThreshold: 1  });
 
 
   function go(){
@@ -41,7 +29,8 @@ export default function CalculatorPreview(){
   }
 
   return <div 
-    className={"CalculatorPreview" + (isClicked?" click":"") + (isScrolled?" scroll":"") + (isMounted?" mounted":"")} 
+    {...activityHandlers}
+    className={"CalculatorPreview" + (isClicked?" click":"") + (isScrolled?" scroll":"") + (isMounted?" mounted":"") + (isIdle?" idle":"")} 
     onMouseUp={()=>go()}
     >
     CALCULA TU ENVÍO

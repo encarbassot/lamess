@@ -62,14 +62,7 @@
   /* margin-top: 50px; */
 }
 
-.CitySelector .left {
-  animation: pulseClip 4s ease-in-out infinite;
-}
 
-.CitySelector.leftHover .left,
-.CitySelector.rightHover .left {
-  animation: none;
-}
 
 
 

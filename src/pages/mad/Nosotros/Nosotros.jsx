@@ -51,7 +51,7 @@ export default function Nosotros(){
         <div className="content">
           <h2><b>Tarifas</b> y <b>Servicios Personalizados</b></h2>
           <p>Ofrecemos diferentes <b>tarifas</b> según el tipo de <b>transporte</b> y también <b>servicios personalizados</b> para <b>eventos</b> o <b>necesidades específicas</b>. Trabajamos con empresas que necesitan <b>soluciones logísticas</b> a medida y siempre estamos dispuestos a adaptar nuestros servicios para cada <b>cliente</b>.</p>
-          <Link className="button" to="/barcelona/calculate" ><b>Calcula tu envio</b></Link>
+          <Link className="button" to="/madrid/calculate" ><b>Calcula tu envio</b></Link>
         </div>
       </div>
     </article>

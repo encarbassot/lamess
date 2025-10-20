@@ -9,7 +9,7 @@ export default function useDelayNavigate(ms = 600) {
       if (to === undefined || to === null) navigate(-1);
       else navigate(to); 
       
-      callback?.();
+      if(typeof callback === "function") callback()
       
     }, ms);
   }
