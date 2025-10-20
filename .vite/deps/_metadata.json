@@ -1,0 +1,73 @@
+{
+  "hash": "dfcb7e2d",
+  "configHash": "31247695",
+  "lockfileHash": "87141f00",
+  "browserHash": "3907e814",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "907b04ba",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "2a82a8dd",
+      "needsInterop": false
+    },
+    "aos": {
+      "src": "../../node_modules/aos/dist/aos.js",
+      "file": "aos.js",
+      "fileHash": "f33742b9",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "df2b35f6",
+      "needsInterop": true
+    },
+    "react-router-hash-link/dist/react-router-hash-link.cjs.production": {
+      "src": "../../node_modules/react-router-hash-link/dist/react-router-hash-link.cjs.production.js",
+      "file": "react-router-hash-link_dist_react-router-hash-link__cjs__production.js",
+      "fileHash": "56d3c22d",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "f3b13a40",
+      "needsInterop": false
+    },
+    "react-leaflet": {
+      "src": "../../node_modules/react-leaflet/lib/index.js",
+      "file": "react-leaflet.js",
+      "fileHash": "7f2ccb60",
+      "needsInterop": false
+    },
+    "leaflet": {
+      "src": "../../node_modules/leaflet/dist/leaflet-src.js",
+      "file": "leaflet.js",
+      "fileHash": "3ca5a259",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-2IQKUMMK": {
+      "file": "chunk-2IQKUMMK.js"
+    },
+    "chunk-ZIYUGMGG": {
+      "file": "chunk-ZIYUGMGG.js"
+    },
+    "chunk-65KY755N": {
+      "file": "chunk-65KY755N.js"
+    },
+    "chunk-PML55YSI": {
+      "file": "chunk-PML55YSI.js"
+    },
+    "chunk-V4OQ3NZ2": {
+      "file": "chunk-V4OQ3NZ2.js"
+    }
+  }
+}

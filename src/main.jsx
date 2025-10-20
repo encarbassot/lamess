@@ -1,3 +1,4 @@
+import { HelmetProvider } from 'react-helmet-async';
 
 
 import { createRoot } from 'react-dom/client'
@@ -56,9 +57,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   // <Context>
+  <HelmetProvider>
     <RouterProvider router={router}>
       <App />
     </RouterProvider>
+  </HelmetProvider>
   //  </Context> 
   ,
 )

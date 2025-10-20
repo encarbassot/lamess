@@ -1,5 +1,4 @@
 import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
-// import Navbar from './elio-react-components/Components/Navbar/Navbar'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
