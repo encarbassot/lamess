@@ -58,6 +58,12 @@
 }
 
 
+@media screen and (max-width:975px) {
+  .CalculatorPreview.idle {
+    transform: translate(-50px, 100px) rotate(5deg) scale(.8) !important;
+  }
+}
+
 .CalculatorPreview:hover {
   background-color: #6e8457;
 
